@@ -22,6 +22,7 @@ static const char dmenufont[]       = "JetBrainsMono NF:size=10";
 //  [SchemeSel]  = { col_gray4, col_cyan,  col_win_border_sel  },
 // };
 
+// pywal color scheme importing
 #include "/home/afshan/.cache/wal/colors-wal-dwm.h"
 
 /* tagging */
@@ -62,8 +63,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-// static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *dmenucmd[] = { "dmenu_run", NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 
 static Key keys[] = {
