@@ -22,7 +22,21 @@ static const char dmenufont[]       = "JetBrainsMono NF:size=11";
 //  [SchemeSel]  = { col_gray4, col_cyan,  col_win_border_sel  },
 // };
 
-#include "/home/afshan/.cache/wal/colors-wal-dwm.h"
+ static char normbgcolor[]           ="#222222";
+ static char normbordercolor[]       ="#444444";
+ static char normfgcolor[]           = "#bbbbbb";
+ static char selfgcolor[]            = "#eeeeee";
+ static char selbordercolor[]        = "#005577";
+ static char selbgcolor[]            = "#005577";
+ static char *colors[][3] = {
+        /*               fg           bg           border   */
+        [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
+        [SchemeSel]  = { selfgcolor,  selbgcolor,  selbordercolor  },
+ };
+
+
+// pywal color scheme importing
+//#include "/home/afshan/.cache/wal/colors-wal-dwm.h"
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
@@ -63,7 +77,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 // static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *dmenucmd[] = { "dmenu_run","-fn",dmenufont, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 
 static Key keys[] = {
@@ -91,6 +105,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	{ MODKEY,                       XK_F5,     xrdb,           {.v = NULL } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
