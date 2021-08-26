@@ -1,11 +1,11 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 4;        /* border pixel of windows */
+static const unsigned int borderpx  = 5;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "JetBrainsMono NF:size=11","Font Awesome:size 15" };
+static const char *fonts[]          = { "JetBrainsMono NF:size=11","JoyPixels:pixelsize=11:antialias=true:autohint=true" };
 static const char dmenufont[]       = "JetBrainsMono NF:size=11";
 
 // static const char col_gray1[]       = "#222222";
