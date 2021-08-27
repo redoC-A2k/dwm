@@ -1,4 +1,6 @@
 /* See LICENSE file for copyright and license details. */
+#include <X11/XF86keysym.h>
+
 
 /* appearance */
 static const unsigned int borderpx  = 3;        /* border pixel of windows */
@@ -22,6 +24,13 @@ static const char dmenufont[]       = "JetBrainsMono NF:size=11";
 //  [SchemeNorm] = { col_gray3, col_win_bg_norm, col_win_border_norm },
 //  [SchemeSel]  = { col_gray4, col_cyan,  col_win_border_sel  },
 // };
+
+ static const char *mutecmd[] = {"pactl","set-sink-mute","0","toggle",NULL};
+ static const char *volupcmd[] = {"pactl","set-sink-volume","0","+5%",NULL};
+ static const char *voldowncmd[] = {"pactl","set-sink-volume","0","-5%",NULL};
+ static const char *brupcmd[] = { "brightnessctl","-d","intel_backlight","s","+5",NULL };
+ static const char *brdowncmd[] = { "brightnessctl","-d","intel_backlight","s","5-",NULL };
+
 
  static char normbgcolor[]           ="#222222";
  static char normbordercolor[]       ="#444444";
@@ -118,6 +127,11 @@ static Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 	{ MODKEY|ControlMask|ShiftMask, XK_q,      quit,           {1} }, 
+  {0,                             XF86XK_AudioMute,spawn,    {.v = mutecmd}},
+  {0,                             XF86XK_AudioRaiseVolume,spawn,    {.v = volupcmd}},
+  {0,                             XF86XK_AudioLowerVolume,spawn,    {.v = voldowncmd}},
+  {0,                             XF86XK_MonBrightnessUp,spawn,{.v = brupcmd}},
+  {0,                             XF86XK_MonBrightnessDown,spawn,{.v = brdowncmd}},
 };
 
 /* button definitions */
